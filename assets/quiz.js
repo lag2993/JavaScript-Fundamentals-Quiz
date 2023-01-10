@@ -45,14 +45,12 @@ var time = quiz.length*20;
 var pairedTimer;
 var correctResponses = 0;
 var breakPoint = (quiz.length) 
-// SFX
 
+// SFX
 var sfxRight;
 var sfxWrong;
 
 // Function:
-
-// Show Scores
 
 // Start Button
 
@@ -118,7 +116,7 @@ function Evaluation(event){
     }
 
     currentQuestion++;
-           // Break Point
+           // End case for function
            console.log(currentQuestion);
            if(time<=0 || currentQuestion === quiz.length){
             End();

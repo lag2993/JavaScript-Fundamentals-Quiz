@@ -5,10 +5,6 @@ body {
 .hidden {
     display: none;
 }
-.show {
-    display: "";
-}
-
 .HsL {
     position: fixed;
     top: 10px;
@@ -35,18 +31,18 @@ ol {
 }
 li {
     padding: 5px;
-    list-style: decimal inside none;
+    list-style: inside none;
 }
 button {
     text-align: center;
-    margin:5px;
+    margin:10px;
     cursor: pointer;
     font-size: 100%;
     background-color: blue;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 5px 50px;
     color: white;   
-    border: 0;
+    border: 5;
 }
 
 button:hover {
@@ -58,12 +54,11 @@ button:hover {
 }
 .reset button {
     display: block;
-    padding: 2px;
 }
 .eval {
     font-size: 120%;
     margin-top: 20px;
-    padding-top: 10px;
+    padding-top: 20px;
     color: black;
     border-top: 5px solid white;
 
