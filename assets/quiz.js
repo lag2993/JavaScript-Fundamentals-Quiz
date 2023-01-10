@@ -44,7 +44,6 @@ var currentQuestion = 0;
 var time = quiz.length*20;
 var pairedTimer;
 var correctResponses = 0;
-var breakPoint = (quiz.length) 
 
 // SFX
 var sfxRight;
