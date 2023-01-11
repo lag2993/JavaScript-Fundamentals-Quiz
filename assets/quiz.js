@@ -1,3 +1,22 @@
+// Variables
+// DOM elements
+var showScoresBtn = document.getElementById("showScores");
+var scoreSheet = document.getElementById("HsL");
+var resetBtn = document.getElementById("reset");
+var countDownEl = document.getElementById("time");
+var promptEl = document.getElementById("prompt")
+var startBtn = document.getElementById("start");
+var quizEl = document.getElementById("quiz");
+var questionEl = document.getElementById("question")
+var answersEl = document.getElementById("answers");
+var timesUpEl = document.getElementById("timesUp");
+var finalScoreEl = document.getElementById("final-score");
+var initialsEl = document.getElementById("initials");
+var submitBtn = document.getElementById("submit");
+var evaluationEl = document.getElementById("eval");
+
+// Quiz
+
 var quiz = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
@@ -21,23 +40,6 @@ var quiz = [
     },
 
 ]
-
-// Variables
-// DOM elements
-var showScoresBtn = document.getElementById("showScores");
-var scoreSheet = document.getElementById("HsL");
-var resetBtn = document.getElementById("reset");
-var countDownEl = document.getElementById("time");
-var promptEl = document.getElementById("prompt")
-var startBtn = document.getElementById("start");
-var quizEl = document.getElementById("quiz");
-var questionEl = document.getElementById("question")
-var answersEl = document.getElementById("answers");
-var timesUpEl = document.getElementById("timesUp");
-var finalScoreEl = document.getElementById("final-score");
-var initialsEl = document.getElementById("initials");
-var submitBtn = document.getElementById("submit");
-var evaluationEl = document.getElementById("eval");
 
 // Track questions, answers and time
 var currentQuestion = 0;
@@ -124,6 +126,7 @@ function Evaluation(event){
    };
 
 }
+// End of Quiz
 function End(){
     clearInterval(pairedTimer);
     timesUpEl.removeAttribute("class");
@@ -142,7 +145,7 @@ function submitScore(){
     var name = initialsEl.value.trim();
 
     if (name !== ""){
-        scoreSheet = JSON.parse(window.localStorage.getItem("scoreSheet"))|| [];
+        scoreSheet = JSON.parse(localStorage.getItem("scoreSheet"))|| [];
 
         
         var currentScore = {
@@ -151,7 +154,7 @@ function submitScore(){
             initials:name,
         }
         scoreSheet.push(currentScore);
-        window.localStorage.setItem("scoreSheet",JSON.stringify(scoreSheet));
+        localStorage.setItem("scoreSheet",JSON.stringify(scoreSheet));
         location.reload();
     }
 
@@ -166,10 +169,13 @@ function showScores(){
     scoreSheet.removeAttribute("class");
     resetBtn.removeAttribute("class");
     resetBtn.setAttribute("class","reset");
+    scoreSheet = JSON.parse(localStorage.getItem("scoreSheet"));
+    
     for(let i = 0;i< scoreSheet.length;i++){
-        var scoreList = scoreSheet.currentScore[i];
-        scoreSheet.textContent = "Name: "+ currentScore.initials+ " Time: "+currentScore.time+" Success Rate: " + currentScore.successRate;   
-        answersEl.append(answerBtn);
+        var scoreList = scoreSheet[i];
+        console.log(scoreList);
+        scoreSheet.textContent = "Name: "+ scoreList.initials+ " Time: "+scoreList.time+" Success Rate: " + scoreList.successRate;   
+        answersEl.append(scoreSheet);
     }
 
 
